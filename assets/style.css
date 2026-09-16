@@ -341,6 +341,18 @@ a{ color: inherit; }
 
 .cta-button:hover{ opacity: 0.85; }
 
+.cta-fallback{
+  display: block;
+  margin-top: 14px;
+  font-size: 12px;
+  color: var(--ink-faint);
+}
+
+.cta-fallback span{
+  color: var(--ink-dim);
+  user-select: all;
+}
+
 .floor-nav{
   display: flex;
   justify-content: space-between;
