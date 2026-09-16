@@ -1,0 +1,445 @@
+/* ==========================================================================
+   REMO CRAFT — Museum Floor Directory
+   Design tokens
+   ========================================================================== */
+
+:root{
+  --bg:        #14120f;   /* gallery wall, warm near-black */
+  --bg-panel:  #1c1a16;   /* slightly raised panel */
+  --line:      #35322b;   /* hairline dividers */
+  --ink:       #ede7dc;   /* warm off-white text */
+  --ink-dim:   #bfb6a4;   /* muted secondary text */
+  --ink-faint: #948a72;   /* floor numbers, tertiary */
+  --silver:    #c7cbd1;   /* pewter accent — ties to silver jewelry */
+  --silver-dim:#7d8188;
+  --brass:     #a9895a;   /* rare warm accent, CTA */
+  --brass-ink: #14120f;
+
+  --serif: "Shippori Mincho", serif;
+  --sans:  "Zen Kaku Gothic New", sans-serif;
+  --hand:  "Caveat", cursive;
+
+  --max: 780px;
+  --gutter: 24px;
+}
+
+*{ box-sizing: border-box; }
+
+html{ scroll-behavior: smooth; }
+
+body{
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 17px;
+  line-height: 1.9;
+  -webkit-font-smoothing: antialiased;
+}
+
+@media (prefers-reduced-motion: reduce){
+  html{ scroll-behavior: auto; }
+  *{ animation: none !important; transition: none !important; }
+}
+
+img{ max-width: 100%; display: block; }
+
+a{ color: inherit; }
+
+.wrap{
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+
+/* ---------- header / floor nav ---------- */
+
+.site-header{
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: rgba(20,18,15,0.92);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid var(--line);
+}
+
+.site-header .wrap{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 56px;
+  max-width: 920px;
+}
+
+.brand-mark{
+  display: block;
+  text-decoration: none;
+}
+
+.brand-mark img{
+  height: 22px;
+  width: auto;
+  display: block;
+}
+
+.floor-tag{
+  font-family: var(--serif);
+  font-size: 13px;
+  color: var(--ink-dim);
+  border: 1px solid var(--line);
+  padding: 4px 12px;
+  border-radius: 2px;
+}
+
+/* ---------- hero (top page) ---------- */
+
+.hero{
+  min-height: 78vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 80px var(--gutter) 60px;
+  border-bottom: 1px solid var(--line);
+}
+
+.hero .logo{
+  margin: 0;
+  width: min(70vw, 420px);
+}
+
+.hero .presented{
+  margin-top: 18px;
+  font-size: 12px;
+  letter-spacing: 4px;
+  color: var(--ink-faint);
+}
+
+.hero-copy{
+  max-width: 640px;
+  margin: 56px auto 0;
+  padding: 0 var(--gutter);
+  text-align: left;
+}
+
+.hero-copy p{
+  font-family: var(--serif);
+  font-size: 19px;
+  line-height: 2.05;
+  color: var(--ink);
+  margin: 0 0 6px;
+}
+
+.hero-copy .credit{
+  font-family: var(--sans);
+  font-size: 13px;
+  color: var(--ink-dim);
+  margin-top: 22px;
+}
+
+/* ---------- floor directory (top page list) ---------- */
+
+.directory{
+  padding: 70px 0 100px;
+}
+
+.directory-title{
+  font-family: var(--serif);
+  font-size: 14px;
+  letter-spacing: 3px;
+  color: var(--ink-faint);
+  margin: 0 0 8px;
+  padding: 0 var(--gutter);
+  max-width: 920px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.directory-list{
+  max-width: 920px;
+  margin: 0 auto;
+  border-top: 1px solid var(--line);
+}
+
+.directory-row{
+  display: grid;
+  grid-template-columns: 64px 1fr auto;
+  align-items: baseline;
+  gap: 18px;
+  padding: 26px var(--gutter);
+  border-bottom: 1px solid var(--line);
+  text-decoration: none;
+  color: var(--ink);
+  transition: background 0.2s ease;
+}
+
+.directory-row:hover{ background: var(--bg-panel); }
+.directory-row:hover .row-en{ color: var(--silver); }
+
+.row-num{
+  font-family: var(--serif);
+  font-size: 22px;
+  color: var(--ink-faint);
+}
+
+.row-text{ min-width: 0; }
+
+.row-jp{
+  font-family: var(--serif);
+  font-size: 20px;
+}
+
+.row-en{
+  display: block;
+  font-size: 12px;
+  letter-spacing: 2px;
+  color: var(--ink-dim);
+  margin-top: 4px;
+  transition: color 0.2s ease;
+}
+
+.row-hook{
+  font-size: 14px;
+  color: var(--ink-dim);
+  text-align: right;
+  max-width: 220px;
+  display: none;
+}
+
+@media (min-width: 640px){
+  .row-hook{ display: block; }
+}
+
+/* ---------- floor page ---------- */
+
+.floor-hero{
+  padding: 64px var(--gutter) 40px;
+  border-bottom: 1px solid var(--line);
+}
+
+.floor-hero .wrap{ max-width: var(--max); }
+
+.floor-num{
+  font-family: var(--serif);
+  font-size: 15px;
+  letter-spacing: 3px;
+  color: var(--ink-faint);
+  margin: 0 0 14px;
+}
+
+.floor-title-jp{
+  font-family: var(--serif);
+  font-size: clamp(28px, 5vw, 40px);
+  margin: 0 0 6px;
+}
+
+.floor-title-en{
+  font-size: 12px;
+  letter-spacing: 3px;
+  color: var(--ink-dim);
+  margin: 0 0 32px;
+}
+
+.lead{
+  font-family: var(--serif);
+  font-size: 18px;
+  line-height: 2.1;
+  color: var(--ink);
+  max-width: 620px;
+}
+
+/* gallery of works */
+
+.works{
+  padding: 20px 0 30px;
+}
+
+.work{
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 56px var(--gutter);
+  border-bottom: 1px solid var(--line);
+  display: grid;
+  gap: 22px;
+}
+
+.work img, .work .placeholder{
+  border-radius: 1px;
+}
+
+.work .placeholder{
+  width: 100%;
+  aspect-ratio: 4/3;
+  background: var(--bg-panel);
+  border: 1px dashed var(--line);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--ink-faint);
+  font-size: 13px;
+  text-align: center;
+  padding: 20px;
+}
+
+.work-caption-title{
+  font-family: var(--serif);
+  font-size: 17px;
+  margin: 0 0 6px;
+}
+
+.work-caption-text{
+  font-size: 15px;
+  color: var(--ink-dim);
+  line-height: 1.85;
+  margin: 0;
+}
+
+/* image grid for multi-photo entries */
+
+.work-grid{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+}
+
+.work-grid img{ width: 100%; height: 100%; object-fit: cover; aspect-ratio: 1; }
+
+/* ---------- contact CTA ---------- */
+
+.cta{
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 60px var(--gutter) 90px;
+}
+
+.cta-box{
+  border: 1px solid var(--line);
+  padding: 36px 30px;
+  text-align: center;
+}
+
+.cta-box p{
+  font-size: 14px;
+  color: var(--ink-dim);
+  line-height: 1.9;
+  margin: 0 0 22px;
+}
+
+.cta-button{
+  display: inline-block;
+  font-family: var(--sans);
+  font-size: 14px;
+  letter-spacing: 1px;
+  color: var(--brass-ink);
+  background: var(--brass);
+  padding: 14px 34px;
+  text-decoration: none;
+  border-radius: 2px;
+  transition: opacity 0.2s ease;
+}
+
+.cta-button:hover{ opacity: 0.85; }
+
+.floor-nav{
+  display: flex;
+  justify-content: space-between;
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 0 var(--gutter) 70px;
+  font-size: 13px;
+  color: var(--ink-dim);
+}
+
+.floor-nav a{ text-decoration: none; color: var(--ink-dim); }
+.floor-nav a:hover{ color: var(--silver); }
+
+/* ---------- profile floor ---------- */
+
+.profile-grid{
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 20px var(--gutter) 40px;
+  display: grid;
+  gap: 34px;
+}
+
+@media (min-width: 640px){
+  .profile-grid{
+    grid-template-columns: 220px 1fr;
+    align-items: start;
+  }
+}
+
+.profile-photo-img{
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border: 1px solid var(--line);
+}
+
+.profile-name{
+  font-family: var(--serif);
+  font-size: 20px;
+  color: var(--ink);
+  margin: 0 0 20px;
+}
+
+.profile-body p{
+  font-size: 15px;
+  color: var(--ink);
+  line-height: 1.95;
+}
+
+/* ---------- links floor ---------- */
+
+.link-list{
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 10px var(--gutter) 40px;
+  border-top: 1px solid var(--line);
+}
+
+.link-row{
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 20px 0;
+  border-bottom: 1px solid var(--line);
+  text-decoration: none;
+  color: var(--ink);
+}
+
+.link-logo{
+  width: 72px;
+  height: 72px;
+  object-fit: contain;
+  background: #fff;
+  border-radius: 2px;
+  flex-shrink: 0;
+  padding: 4px;
+}
+
+.link-row:hover .link-name{ color: var(--silver); }
+
+.link-name{
+  font-family: var(--serif);
+  font-size: 19px;
+  transition: color 0.2s ease;
+}
+
+.link-desc{
+  font-size: 14px;
+  color: var(--ink-dim);
+  margin-top: 6px;
+}
+
+/* ---------- footer ---------- */
+
+.site-footer{
+  text-align: center;
+  padding: 40px var(--gutter) 60px;
+  font-size: 12px;
+  color: var(--ink-faint);
+  border-top: 1px solid var(--line);
+}
